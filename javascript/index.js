@@ -1,9 +1,18 @@
+//there are two ways: you can call 
+
+//the function directly on the button when clicked
 function talker() {
   document.querySelector("#heading").innerHTML = "The MERN Stack Rocks";
   document.querySelector("#heading").style.color = "red";
 }
 
 //counter classwork
+
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelector("#btn-heading").addEventListener("click", talker)
+})
+
+//you can add an eventListener to the ID or Class of a button or element using querySelector
 document.addEventListener("DOMContentLoaded", function () {
   document
     .querySelector("#btn-counter")
@@ -16,7 +25,10 @@ let num = 0;
 function counterHandler() {
   num++;
   document.querySelector(".counter-id").innerHTML = num;
-  document.querySelector(".counter-id").style.color = "blue";
+  
+  document.querySelector(".counter-id").style.color !== "blue"
+    ? (document.querySelector(".counter-id").style.color = "blue")
+    : document.querySelector(".counter-id").style.color = "red";
 }
 
 //FIZZ BUZZ classwork
@@ -41,19 +53,33 @@ const fizzAlgo = () => {
   }
 };
 
-//post
-const theValue = document.querySelector("#text-box").value;
-console.log(theValue);
+//event listner on forms
 
-// document.addEventListener("DOMContentLoaded", function () {
+//get the input element
+const itemInput = document.querySelector("#item-input");
+
+//add an event listner to the whole DOM
+document.addEventListener("DOMContentLoaded", function () {
   
+  //get the form element
+  const submitForm = document.querySelector("#theForm");
+  
+  //add a submit event listner to the form element
+  submitForm.addEventListener("submit", function (e) {
+    e.preventDefault(); //prevent the document from reloading after submit
 
-//   const submit = document.querySelector("#theForm");
-//   submit.addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     document.querySelector("#msgbox").innerHTML = theValue;
-//   });
-// });
+    //get the value of the input element
+    const theValue = itemInput.value;
+    console.log(theValue);
+    console.log(itemInput);
+
+    if (theValue !== "") {
+      document.querySelector("#msgbox").innerHTML = theValue;
+    } else{
+      alert("Please add a message");
+    }
+  });
+});
 
 //change color of texts via different buttons
 //red

@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Working With The DOM - Anchorsoft</title>
+  <title>Working With The DOM - CharisIntelligence</title>
 </head>
 
 <body>
   
   <h1 id="heading">The DOM missy</h1>
-  <button onclick="talker()">Click me</button>
+  <button id="btn-heading" >Click me</button>
 
   <hr/>
 
@@ -24,9 +24,15 @@
 
   <hr>
   <h1>Message Box</h1>
-  <h3 id=" msgbox">default message</h3>
+  <h3 id="msgbox">default message</h3>
   <form action="" id="theForm">
-    <input type="text" name="" id="text-box">
+     <input
+            type="text"
+            class="form-input"
+            id="item-input"
+            name="item"
+            placeholder="Enter message here"
+          />
     <button type="submit">Post</button>
   </form>
 
