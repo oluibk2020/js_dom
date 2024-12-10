@@ -58,27 +58,28 @@ const fizzAlgo = () => {
 //get the input element
 const itemInput = document.querySelector("#item-input");
 
+//submit form function
+function submitHandler(e) {
+  e.preventDefault(); //prevent the document from reloading after submit
+
+  //get the value of the input element
+  const theValue = itemInput.value;
+  console.log(theValue);
+  console.log(itemInput);
+
+  if (theValue.trim() !== "") {
+    document.querySelector("#msgbox").innerHTML = theValue;
+  } else {
+    alert("Please add a message");
+  }
+}
+
 //add an event listner to the whole DOM
 document.addEventListener("DOMContentLoaded", function () {
   
-  //get the form element
-  const submitForm = document.querySelector("#theForm");
-  
-  //add a submit event listner to the form element
-  submitForm.addEventListener("submit", function (e) {
-    e.preventDefault(); //prevent the document from reloading after submit
+  //get the form element and attach event listner
+   document.querySelector("#theForm").addEventListener("submit", submitHandler);
 
-    //get the value of the input element
-    const theValue = itemInput.value;
-    console.log(theValue);
-    console.log(itemInput);
-
-    if (theValue !== "") {
-      document.querySelector("#msgbox").innerHTML = theValue;
-    } else{
-      alert("Please add a message");
-    }
-  });
 });
 
 //change color of texts via different buttons
@@ -98,3 +99,17 @@ document.addEventListener("DOMContentLoaded", function () {
     header.style.color = "green";
   };
 });
+
+//Number Object
+let num2 = "2.3456272"
+
+//converting a number string to a number data type
+let num3 = Number(num2)
+
+//Rounding a number to a specific decimal point
+let deciNum = num3.toFixed(3)
+
+//converting a number data type to a string
+let num4 = num3.toString()
+
+console.log(num4, deciNum);
